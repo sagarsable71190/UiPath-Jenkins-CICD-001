@@ -67,7 +67,18 @@ pipeline {
 	                //credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'ade18b82-5a45-44f6-aa49-cf5083bfde84'), 
 					//traceLevel: 'None',
 					//entryPointPaths: 'Main.xaml'
-	
+					
+					UiPathDeploy (
+					createProcess: true,
+					credentials: UserPass('6c4202ac-a7be-420f-ac38-931701fd1677'),
+					entryPointPaths: 'Main.xaml',
+					//environments: '',
+					folderName: "${UIPATH_ORCH_FOLDER_NAME}",
+					orchestratorAddress: "${UIPATH_ORCH_URL}",
+					orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+					packagePath: "Output\\${env.BUILD_NUMBER}",
+					traceLevel: 'None'
+					)
 
 	        //)
 	            }
@@ -105,7 +116,7 @@ pipeline {
 	        }
 	        always {
 	            /* Clean workspace if success */
-	            cleanWs()
+	            //cleanWs()
 	        }
 	    }
 	
