@@ -115,6 +115,7 @@ pipeline {
 	          echo "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.JOB_DISPLAY_URL})"
 	        }
 	        always {
+				echo 'Always Executed!'
 	            /* Clean workspace if success */
 	            //cleanWs()
 	        }
